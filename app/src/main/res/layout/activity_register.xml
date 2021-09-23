@@ -9,7 +9,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.covidscanner.ui.login.LoginViewModel" />
+            type="com.example.covidscanner.ui.register.RegistrationViewModel" />
     </data>
 
     <RelativeLayout
@@ -24,6 +24,34 @@
             android:orientation="vertical"
             android:paddingStart="40dp"
             android:paddingEnd="40dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etFName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:hint="@string/hint_first_name"
+                    android:inputType="textPersonName|textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etLName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:hint="@string/hint_last_name"
+                    android:inputType="textPersonName|textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til1"
@@ -54,22 +82,29 @@
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etConfirmPass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:hint="@string/hint_confirm_password"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
             <Button
                 android:id="@+id/btnLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
-                android:text="@string/btn_login" />
+                android:onClick="@{() -> viewModel.register()}"
+                android:text="@string/btn_register" />
 
-            <TextView
-                android:id="@+id/txtSignUp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:background="?android:attr/selectableItemBackground"
-                android:onClick="@{() -> viewModel.openRegistration()}"
-                android:text="@string/txt_sign_up"
-                android:textColor="@android:color/holo_blue_light" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </RelativeLayout>
 </layout>

@@ -1,6 +1,10 @@
 package com.example.covidscanner.ui.login;
 
-import androidx.lifecycle.ViewModel;
+import com.example.covidscanner.ui.base.BaseViewModel;
 
-public class LoginViewModel extends ViewModel {
+public class LoginViewModel extends BaseViewModel<LoginNavigator> {
+
+    public void openRegistration() {
+        getNavigator().openRegistration();
+    }
 }

@@ -18,6 +18,8 @@ import java.util.List;
 
 public class SplashActivity extends BaseActivity<SplashViewModel> {
 
+    ActivitySplashBinding binding;
+
     @NonNull
     @Override
     protected SplashViewModel createViewModel() {
@@ -29,25 +31,11 @@ public class SplashActivity extends BaseActivity<SplashViewModel> {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setDataBindings();
-
-        AppDatabase db = AppDatabase.getInstance();
-        UserDao userDao = db.userDao();
-        class InsertUser extends AsyncTask <Void, Void, Void> {
-
-            @Override
-            protected Void doInBackground(Void... voids) {
-                userDao.insertUser(new User("haaarsh", "12323", "K", "H"));
-                List<User> user = userDao.getUser();
-                return null;
-            }
-        }
-        InsertUser insertUser = new InsertUser();
-        insertUser.execute();
     }
 
     private void setDataBindings() {
-        ActivitySplashBinding activitySplashBinding = DataBindingUtil.setContentView(this, R.layout.activity_splash);
-        activitySplashBinding.setViewModel(viewModel);
-        activitySplashBinding.executePendingBindings();
+        ActivitySplashBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_splash);
+        binding.setViewModel(viewModel);
+        binding.executePendingBindings();
     }
 }

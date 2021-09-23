@@ -16,11 +16,18 @@ public interface UserDao {
     void deleteUser(User user);
 
     @Query("SELECT * FROM user")
-    List<User> getUser();
+    List<User> getUsers();
 
     @Insert
     void insertUser(User... user);
 
     @Update
     void updateUser(User user);
+
+    @Query("SELECT username FROM user")
+    List<String> getUsernames();
+
+    @Query("SELECT isLoggedIn FROM user WHERE username LIKE :username")
+    boolean isLoggedIn(String username);
+
 }
