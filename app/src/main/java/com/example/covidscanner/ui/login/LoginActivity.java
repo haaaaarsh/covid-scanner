@@ -1,23 +1,19 @@
 package com.example.covidscanner.ui.login;
 
+import android.content.Context;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.view.View;
-
 import com.example.covidscanner.R;
-import com.example.covidscanner.data.db.AppDatabase;
-import com.example.covidscanner.data.db.dao.UserDao;
-import com.example.covidscanner.data.model.User;
 import com.example.covidscanner.databinding.ActivityLoginBinding;
 import com.example.covidscanner.ui.base.BaseActivity;
+import com.example.covidscanner.ui.dashboard.DashboardActivity;
 import com.example.covidscanner.ui.register.RegistrationActivity;
-
-import java.util.List;
 
 public class LoginActivity extends BaseActivity<LoginViewModel> implements LoginNavigator {
 
@@ -35,21 +31,6 @@ public class LoginActivity extends BaseActivity<LoginViewModel> implements Login
         super.onCreate(savedInstanceState);
         setDataBindings();
         viewModel.setNavigator(this);
-
-
-
-        AppDatabase db = AppDatabase.getInstance();
-        UserDao userDao = db.userDao();
-        class InsertUser extends AsyncTask<Void, Void, Void> {
-
-            @Override
-            protected Void doInBackground(Void... voids) {
-                List<User> user = userDao.getUsers();
-                return null;
-            }
-        }
-        InsertUser insertUser = new InsertUser();
-        insertUser.execute();
     }
 
     private void setDataBindings() {
@@ -61,5 +42,31 @@ public class LoginActivity extends BaseActivity<LoginViewModel> implements Login
     @Override
     public void openRegistration() {
         openActivity(RegistrationActivity.class);
+    }
+
+    @Override
+    public Context getActivityContext() {
+        return this;
+    }
+
+    @Override
+    public void onError(String message) {
+        showSnackbar(message, Color.RED, Color.WHITE);
+    }
+
+    @Override
+    public void onLoginComplete() {
+        Toast.makeText(this, getResources().getString(R.string.toast_login), Toast.LENGTH_SHORT).show();
+        openActivity(DashboardActivity.class);
+        finish();
+    }
+
+    @Override
+    public void login() {
+        hideKeyboard();
+        if (viewModel.isValidated(binding.etUserName, binding.etPass)) {
+            viewModel.attemptLogin(binding.etUserName.getText().toString().trim(),
+                    binding.etPass.getText().toString().trim());
+        }
     }
 }

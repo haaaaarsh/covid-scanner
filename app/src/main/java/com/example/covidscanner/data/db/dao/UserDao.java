@@ -30,4 +30,7 @@ public interface UserDao {
     @Query("SELECT isLoggedIn FROM user WHERE username LIKE :username")
     boolean isLoggedIn(String username);
 
+    @Query("SELECT * FROM user WHERE username LIKE :username LIMIT 1")
+    List<User> findByUsername(String username);
+
 }
