@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Covid Scanner</string>
+
+    <string name="hint_email">Email ID</string>
+    <string name="hint_password">Password</string>
+    <string name="btn_login">Login</string>
+
 </resources>
