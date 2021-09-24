@@ -19,6 +19,7 @@ import com.example.covidscanner.data.model.User;
 import com.example.covidscanner.databinding.ActivityDashboardBinding;
 import com.example.covidscanner.ui.base.BaseActivity;
 import com.example.covidscanner.ui.login.LoginActivity;
+import com.example.covidscanner.ui.symptom.SymptomActivity;
 
 public class DashboardActivity extends BaseActivity<DashboardViewModel> implements DashboardNavigator {
 
@@ -100,6 +101,7 @@ public class DashboardActivity extends BaseActivity<DashboardViewModel> implemen
             case 2:
                 break;
             case 3:
+                openActivity(SymptomActivity.class);
                 break;
         }
     }
