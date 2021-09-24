@@ -36,10 +36,15 @@ public class SymptomActivity extends BaseActivity<SymptomViewModel> implements S
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setToolBar();
         setDataBindings();
         viewModel.setNavigator(this);
         setRecyclerView();
+    }
+
+    private void setToolBar() {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(R.string.title_symps);
     }
 
     private void setDataBindings() {

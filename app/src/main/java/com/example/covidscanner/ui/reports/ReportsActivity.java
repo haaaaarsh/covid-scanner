@@ -1,4 +1,4 @@
-package com.example.covidscanner.ui.respiratory;
+package com.example.covidscanner.ui.reports;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -10,18 +10,18 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.covidscanner.R;
 import com.example.covidscanner.databinding.ActivityHeartRateBinding;
-import com.example.covidscanner.databinding.ActivityRespiRateBinding;
+import com.example.covidscanner.databinding.ActivityReportsBinding;
 import com.example.covidscanner.ui.base.BaseActivity;
 
-public class RespiratoryRateActivity extends BaseActivity<RespiratoryRateViewModel> implements RespiratoryRateNavigator {
+public class ReportsActivity extends BaseActivity<ReportsViewModel> implements ReportsNavigator {
 
-    ActivityRespiRateBinding binding;
+    ActivityReportsBinding binding;
 
     @NonNull
     @Override
-    protected RespiratoryRateViewModel createViewModel() {
-        RespiratoryRateViewModelFactory factory = new RespiratoryRateViewModelFactory();
-        return ViewModelProviders.of(this, factory).get(RespiratoryRateViewModel.class);
+    protected ReportsViewModel createViewModel() {
+        ReportsViewModelFactory factory = new ReportsViewModelFactory();
+        return ViewModelProviders.of(this, factory).get(ReportsViewModel.class);
     }
 
     @Override
@@ -34,11 +34,11 @@ public class RespiratoryRateActivity extends BaseActivity<RespiratoryRateViewMod
 
     private void setToolBar() {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(R.string.title_respi_rate);
+        getSupportActionBar().setTitle(R.string.title_reports);
     }
 
     private void setDataBindings() {
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_respi_rate);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_reports);
         binding.setViewModel(viewModel);
         binding.executePendingBindings();
     }

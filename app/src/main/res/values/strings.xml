@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">Covid Scanner</string>
 
+    <!--    Toolbar Title-->
+    <string name="title_heart_rate">Heart Rate</string>
+    <string name="title_respi_rate">Respiratory Rate</string>
+    <string name="title_symps">Symptoms</string>
+    <string name="title_reports">Reports</string>
+
+
     <!--    Validations-->
     <string name="validate_first_name">First Name should be at least 3 characters long</string>
     <string name="validate_last_name">Last Name should be at least 1 character long</string>
@@ -29,6 +36,7 @@
     <string name="heart_rate">Heart Rate</string>
     <string name="respiratory_rate">Respiratory Rate</string>
     <string name="symptoms">Symptoms</string>
+    <string name="reports">Reports</string>
     <string name="btn_report">Create Report</string>
 
 </resources>

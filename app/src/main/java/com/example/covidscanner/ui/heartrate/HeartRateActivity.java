@@ -26,9 +26,14 @@ public class HeartRateActivity extends BaseActivity<HeartRateViewModel> implemen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setToolBar();
         setDataBindings();
         viewModel.setNavigator(this);
+    }
+
+    private void setToolBar() {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(R.string.title_heart_rate);
     }
 
     private void setDataBindings() {
