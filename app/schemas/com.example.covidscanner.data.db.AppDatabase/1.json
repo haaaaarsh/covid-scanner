@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "896bf9dafc0b5ddce5d475555829fce4",
+    "identityHash": "40e776f1633e9aafe96c6682aa6cdb71",
     "entities": [
       {
         "tableName": "user",
@@ -53,11 +53,116 @@
         },
         "indices": [],
         "foreignKeys": []
+      },
+      {
+        "tableName": "symptoms",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `userId` INTEGER NOT NULL DEFAULT 0, `creationDate` INTEGER NOT NULL DEFAULT 0, `nausea` INTEGER NOT NULL DEFAULT 0, `headache` INTEGER NOT NULL DEFAULT 0, `diarrhea` INTEGER NOT NULL DEFAULT 0, `soarThroat` INTEGER NOT NULL DEFAULT 0, `fever` INTEGER NOT NULL DEFAULT 0, `muscleAche` INTEGER NOT NULL DEFAULT 0, `smellLoss` INTEGER NOT NULL DEFAULT 0, `cough` INTEGER NOT NULL DEFAULT 0, `shortnessBreath` INTEGER NOT NULL DEFAULT 0, `tiredness` INTEGER NOT NULL DEFAULT 0)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "userId",
+            "columnName": "userId",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "creationDate",
+            "columnName": "creationDate",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "nausea",
+            "columnName": "nausea",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "headache",
+            "columnName": "headache",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "diarrhea",
+            "columnName": "diarrhea",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "soarThroat",
+            "columnName": "soarThroat",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "fever",
+            "columnName": "fever",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "muscleAche",
+            "columnName": "muscleAche",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "smellLoss",
+            "columnName": "smellLoss",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "cough",
+            "columnName": "cough",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "shortnessBreath",
+            "columnName": "shortnessBreath",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "tiredness",
+            "columnName": "tiredness",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
+    "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"896bf9dafc0b5ddce5d475555829fce4\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '40e776f1633e9aafe96c6682aa6cdb71')"
     ]
   }
 }
