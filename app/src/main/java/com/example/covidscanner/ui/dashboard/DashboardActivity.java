@@ -18,7 +18,9 @@ import com.example.covidscanner.data.db.dao.UserDao;
 import com.example.covidscanner.data.model.User;
 import com.example.covidscanner.databinding.ActivityDashboardBinding;
 import com.example.covidscanner.ui.base.BaseActivity;
+import com.example.covidscanner.ui.heartrate.HeartRateActivity;
 import com.example.covidscanner.ui.login.LoginActivity;
+import com.example.covidscanner.ui.respiratory.RespiratoryRateActivity;
 import com.example.covidscanner.ui.symptom.SymptomActivity;
 
 public class DashboardActivity extends BaseActivity<DashboardViewModel> implements DashboardNavigator {
@@ -98,8 +100,10 @@ public class DashboardActivity extends BaseActivity<DashboardViewModel> implemen
     public void openNextScreen(int screenNum) {
         switch (screenNum) {
             case 1:
+                openActivity(HeartRateActivity.class);
                 break;
             case 2:
+                openActivity(RespiratoryRateActivity.class);
                 break;
             case 3:
                 openActivity(SymptomActivity.class);

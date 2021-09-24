@@ -29,6 +29,7 @@ public class RegistrationActivity extends BaseActivity<RegistrationViewModel> im
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setDataBindings();
         viewModel.setNavigator(this);
     }
