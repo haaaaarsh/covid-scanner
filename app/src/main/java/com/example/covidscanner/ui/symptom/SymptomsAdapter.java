@@ -8,20 +8,24 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.covidscanner.R;
+import com.example.covidscanner.data.model.Symptoms;
 import com.example.covidscanner.databinding.ItemSymptomBinding;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import me.zhanghai.android.materialratingbar.MaterialRatingBar;
 
 public class SymptomsAdapter extends RecyclerView.Adapter<SymptomsAdapter.ViewHolder> {
     private List<SymptomsModel> symptomsList;
     private Activity context;
     private LayoutInflater inflater;
-    private NotificationClickListener notificationClickListener;
+    private RatingClickListener ratingClickListener;
 
-    public SymptomsAdapter(Activity context, List<SymptomsModel> symptomsList, NotificationClickListener notificationClickListener) {
+    public SymptomsAdapter(Activity context, RatingClickListener ratingClickListener) {
         this.context = context;
-        this.symptomsList = symptomsList;
-        this.notificationClickListener = notificationClickListener;
+        this.symptomsList = new ArrayList<>();
+        this.ratingClickListener = ratingClickListener;
         inflater = LayoutInflater.from(context);
     }
 
@@ -51,12 +55,13 @@ public class SymptomsAdapter extends RecyclerView.Adapter<SymptomsAdapter.ViewHo
 
         void bindData(final int position) {
             binding.txtName.setText(symptomsList.get(position).getName());
-//            binding.rlRoot.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    notificationClickListener.onNotificationClick(position, notificationsList.get(position).getId(), notificationsList.get(position).getMessage());
-//                }
-//            });
+            binding.rating.setRating(symptomsList.get(position).getRating());
+            binding.rating.setOnRatingChangeListener(new MaterialRatingBar.OnRatingChangeListener() {
+                @Override
+                public void onRatingChanged(MaterialRatingBar ratingBar, float rating) {
+                    ratingClickListener.onRatingClick(symptomsList.get(position), rating);
+                }
+            });
         }
     }
 
@@ -74,7 +79,7 @@ public class SymptomsAdapter extends RecyclerView.Adapter<SymptomsAdapter.ViewHo
         notifyDataSetChanged();
     }
 
-    public interface NotificationClickListener {
-        public void onNotificationClick(int position, String notificationId, String message);
+    public interface RatingClickListener {
+        public void onRatingClick(SymptomsModel symptom, float rating);
     }
 }

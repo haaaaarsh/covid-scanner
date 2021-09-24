@@ -27,4 +27,6 @@ public interface SymptomsDao {
     @Query("SELECT * FROM symptoms WHERE userId LIKE :userId")
     List<Symptoms> findByUserId(String userId);
 
+    @Query("DELETE FROM symptoms WHERE userId = :userId")
+    void deleteByUserId(int userId);
 }

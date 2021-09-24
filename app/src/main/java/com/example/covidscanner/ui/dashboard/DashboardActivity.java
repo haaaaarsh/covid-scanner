@@ -37,6 +37,7 @@ public class DashboardActivity extends BaseActivity<DashboardViewModel> implemen
         super.onCreate(savedInstanceState);
         setDataBindings();
         viewModel.setNavigator(this);
+        viewModel.initSymptomData();
     }
 
     @Override

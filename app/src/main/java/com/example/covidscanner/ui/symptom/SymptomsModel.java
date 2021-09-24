@@ -3,12 +3,12 @@ package com.example.covidscanner.ui.symptom;
 public class SymptomsModel {
 
     private String name;
-    private String rating;
+    private float rating;
 
     public SymptomsModel() {
     }
 
-    public SymptomsModel(String name, String rating) {
+    public SymptomsModel(String name, float rating) {
         this.name = name;
         this.rating = rating;
     }
@@ -21,11 +21,11 @@ public class SymptomsModel {
         this.name = name;
     }
 
-    public String getRating() {
+    public float getRating() {
         return rating;
     }
 
-    public void setRating(String rating) {
+    public void setRating(float rating) {
         this.rating = rating;
     }
 }

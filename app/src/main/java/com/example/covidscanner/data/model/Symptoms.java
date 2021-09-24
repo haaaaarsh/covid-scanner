@@ -17,32 +17,50 @@ public class Symptoms {
     public int creationDate;
 
     @ColumnInfo(defaultValue = "0")
-    public int nausea;
+    public float nausea;
 
     @ColumnInfo(defaultValue = "0")
-    public int headache;
+    public float headache;
 
     @ColumnInfo(defaultValue = "0")
-    public int diarrhea;
+    public float diarrhea;
 
     @ColumnInfo(defaultValue = "0")
-    public int soarThroat;
+    public float soarThroat;
 
     @ColumnInfo(defaultValue = "0")
-    public int fever;
+    public float fever;
 
     @ColumnInfo(defaultValue = "0")
-    public int muscleAche;
+    public float muscleAche;
 
     @ColumnInfo(defaultValue = "0")
-    public int smellLoss;
+    public float smellLoss;
 
     @ColumnInfo(defaultValue = "0")
-    public int cough;
+    public float cough;
 
     @ColumnInfo(defaultValue = "0")
-    public int shortnessBreath;
+    public float shortnessBreath;
 
     @ColumnInfo(defaultValue = "0")
-    public int tiredness;
+    public float tiredness;
+
+    public Symptoms() {
+    }
+
+    public Symptoms(int userId, int creationDate, float nausea, float headache, float diarrhea, float soarThroat, float fever, float muscleAche, float smellLoss, float cough, float shortnessBreath, float tiredness) {
+        this.userId = userId;
+        this.creationDate = creationDate;
+        this.nausea = nausea;
+        this.headache = headache;
+        this.diarrhea = diarrhea;
+        this.soarThroat = soarThroat;
+        this.fever = fever;
+        this.muscleAche = muscleAche;
+        this.smellLoss = smellLoss;
+        this.cough = cough;
+        this.shortnessBreath = shortnessBreath;
+        this.tiredness = tiredness;
+    }
 }
