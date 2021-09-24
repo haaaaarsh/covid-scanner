@@ -9,4 +9,6 @@ public interface DashboardNavigator {
     void onError(String message);
 
     void logout();
+
+    void openNextScreen(int screenNum);
 }

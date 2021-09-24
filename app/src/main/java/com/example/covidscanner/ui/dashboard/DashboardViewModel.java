@@ -11,6 +11,10 @@ public class DashboardViewModel extends BaseViewModel<DashboardNavigator> {
         db = AppDatabase.getInstance();
     }
 
+    public void openNextScreen(int screenNum) {
+        getNavigator().openNextScreen(screenNum);
+    }
+
     public void logout() {
         getNavigator().logout();
     }

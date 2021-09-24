@@ -25,4 +25,10 @@
     <string name="toast_registration">Registration successful</string>
     <string name="error_username">Username already exists! Please use a different one.</string>
 
+    <!--    Dashboard-->
+    <string name="heart_rate">Heart Rate</string>
+    <string name="respiratory_rate">Respiratory Rate</string>
+    <string name="symptoms">Symptoms</string>
+    <string name="btn_report">Create Report</string>
+
 </resources>

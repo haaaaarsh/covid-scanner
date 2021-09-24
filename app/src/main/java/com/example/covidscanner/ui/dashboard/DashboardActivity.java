@@ -4,7 +4,9 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.widget.Toast;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
@@ -15,12 +17,8 @@ import com.example.covidscanner.data.db.AppDatabase;
 import com.example.covidscanner.data.db.dao.UserDao;
 import com.example.covidscanner.data.model.User;
 import com.example.covidscanner.databinding.ActivityDashboardBinding;
-import com.example.covidscanner.databinding.ActivityLoginBinding;
 import com.example.covidscanner.ui.base.BaseActivity;
 import com.example.covidscanner.ui.login.LoginActivity;
-import com.example.covidscanner.ui.register.RegistrationActivity;
-
-import java.util.concurrent.ExecutionException;
 
 public class DashboardActivity extends BaseActivity<DashboardViewModel> implements DashboardNavigator {
 
@@ -38,6 +36,23 @@ public class DashboardActivity extends BaseActivity<DashboardViewModel> implemen
         super.onCreate(savedInstanceState);
         setDataBindings();
         viewModel.setNavigator(this);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_toolbar, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menuLogout:
+                viewModel.logout();
+                break;
+        }
+        return true;
     }
 
     private void setDataBindings() {
@@ -75,4 +90,18 @@ public class DashboardActivity extends BaseActivity<DashboardViewModel> implemen
         LogoutTask logoutTask = new LogoutTask();
         logoutTask.execute();
     }
+
+
+    @Override
+    public void openNextScreen(int screenNum) {
+        switch (screenNum) {
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+        }
+    }
+
 }
