@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.covidscanner.R;
+import com.example.covidscanner.data.model.User;
 import com.example.covidscanner.databinding.ActivityLoginBinding;
 import com.example.covidscanner.ui.base.BaseActivity;
 import com.example.covidscanner.ui.dashboard.DashboardActivity;
@@ -55,7 +56,8 @@ public class LoginActivity extends BaseActivity<LoginViewModel> implements Login
     }
 
     @Override
-    public void onLoginComplete() {
+    public void onLoginComplete(User user) {
+        setCurrentUser(user);
         Toast.makeText(this, getResources().getString(R.string.toast_login), Toast.LENGTH_SHORT).show();
         openActivity(DashboardActivity.class);
         finish();

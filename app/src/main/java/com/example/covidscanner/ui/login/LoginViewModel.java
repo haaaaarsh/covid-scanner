@@ -26,9 +26,9 @@ public class LoginViewModel extends BaseViewModel<LoginNavigator> {
     public void attemptLogin(String username, String password) {
         final boolean[] isLoginSuccess = {false};
         UserDao userDao = db.userDao();
-        class LoginTask extends AsyncTask<Void, Void, Void> {
+        class LoginTask extends AsyncTask<Void, Void, User> {
             @Override
-            protected Void doInBackground(Void... voids) {
+            protected User doInBackground(Void... voids) {
                 User user = null;
                 if (userDao.findByUsername(username) != null &&
                         userDao.findByUsername(username).size() > 0)
@@ -46,14 +46,14 @@ public class LoginViewModel extends BaseViewModel<LoginNavigator> {
                     isLoginSuccess[0] = false;
                     getNavigator().onError(getNavigator().getActivityContext().getResources().getString(R.string.error_wrong_login));
                 }
-                return null;
+                return user;
             }
 
             @Override
-            protected void onPostExecute(Void unused) {
-                super.onPostExecute(unused);
+            protected void onPostExecute(User user) {
+                super.onPostExecute(user);
                 if (isLoginSuccess[0])
-                    getNavigator().onLoginComplete();
+                    getNavigator().onLoginComplete(user);
             }
         }
         LoginTask loginTask = new LoginTask();

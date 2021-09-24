@@ -11,4 +11,7 @@ public class DashboardViewModel extends BaseViewModel<DashboardNavigator> {
         db = AppDatabase.getInstance();
     }
 
+    public void logout() {
+        getNavigator().logout();
+    }
 }
