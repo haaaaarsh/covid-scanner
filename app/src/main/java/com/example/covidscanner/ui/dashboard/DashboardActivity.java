@@ -133,8 +133,13 @@ public class DashboardActivity extends BaseActivity<DashboardViewModel> implemen
             @Override
             public void onChanged(List<Symptoms> symptoms) {
                 Symptoms s = symptoms.get(0);
+
                 binding.txtHeartRate.setText(String.valueOf(s.heartRate != 0f ? s.heartRate + " BPM" : "No Data"));
+                binding.txtHeartRate.setTextColor(s.heartRate != 0f ? getColor(android.R.color.holo_green_light) : getColor(android.R.color.holo_red_light));
+
                 binding.txtRespiRate.setText(String.valueOf(s.respiRate != 0f ? s.respiRate : "No Data"));
+                binding.txtRespiRate.setTextColor(s.respiRate != 0f ? getColor(android.R.color.holo_green_light) : getColor(android.R.color.holo_red_light));
+
             }
         });
     }

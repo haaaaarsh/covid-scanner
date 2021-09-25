@@ -134,7 +134,7 @@ public class CalculateHeartActivity extends BaseActivity<CalculateHeartViewModel
                                         finalHeartRate = (float) round(temp, 2);
                                         Log.e("Final Heart Rate<>", String.valueOf(finalHeartRate));
                                         updateDb(finalHeartRate);
-                                        binding.txtHeartRate.setText(Double.toString(finalHeartRate) + " BPM");
+                                        binding.txtHeartRate.setText(String.format("%.2f BPM", finalHeartRate));
                                     }
                                 };
                                 mainhandler1.post(myrunnable1);
