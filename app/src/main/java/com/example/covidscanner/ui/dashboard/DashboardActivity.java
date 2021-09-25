@@ -13,11 +13,14 @@ import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.covidscanner.R;
 import com.example.covidscanner.data.db.AppDatabase;
+import com.example.covidscanner.data.db.dao.SymptomsDao;
 import com.example.covidscanner.data.db.dao.UserDao;
+import com.example.covidscanner.data.model.Symptoms;
 import com.example.covidscanner.data.model.User;
 import com.example.covidscanner.databinding.ActivityDashboardBinding;
 import com.example.covidscanner.ui.base.BaseActivity;
@@ -26,6 +29,8 @@ import com.example.covidscanner.ui.login.LoginActivity;
 import com.example.covidscanner.ui.reports.ReportsActivity;
 import com.example.covidscanner.ui.respiratory.RespiratoryRateActivity;
 import com.example.covidscanner.ui.symptom.SymptomActivity;
+
+import java.util.List;
 
 public class DashboardActivity extends BaseActivity<DashboardViewModel> implements DashboardNavigator {
 
@@ -45,6 +50,7 @@ public class DashboardActivity extends BaseActivity<DashboardViewModel> implemen
         setDataBindings();
         viewModel.setNavigator(this);
         viewModel.initSymptomData();
+        setData();
     }
 
     @Override
@@ -62,12 +68,6 @@ public class DashboardActivity extends BaseActivity<DashboardViewModel> implemen
                 break;
         }
         return true;
-    }
-
-    private void setDataBindings() {
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_dashboard);
-        binding.setViewModel(viewModel);
-        binding.executePendingBindings();
     }
 
     @Override
@@ -118,6 +118,25 @@ public class DashboardActivity extends BaseActivity<DashboardViewModel> implemen
                 openActivity(ReportsActivity.class);
                 break;
         }
+    }
+
+    private void setDataBindings() {
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_dashboard);
+        binding.setViewModel(viewModel);
+        binding.executePendingBindings();
+    }
+
+    private void setData() {
+        AppDatabase db = AppDatabase.getInstance();
+        SymptomsDao symptomsDao = db.symptomsDao();
+        symptomsDao.loadSymptoms().observe(this, new Observer<List<Symptoms>>() {
+            @Override
+            public void onChanged(List<Symptoms> symptoms) {
+                Symptoms s = symptoms.get(0);
+                binding.txtHeartRate.setText(String.valueOf(s.heartRate != 0f ? s.heartRate + " BPM" : "No Data"));
+                binding.txtRespiRate.setText(String.valueOf(s.respiRate != 0f ? s.respiRate : "No Data"));
+            }
+        });
     }
 
     private boolean checkPermission() {

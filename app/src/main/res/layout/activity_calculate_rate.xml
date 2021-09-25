@@ -12,10 +12,31 @@
             type="com.example.covidscanner.ui.calculateheart.CalculateHeartViewModel" />
     </data>
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+        <com.mikhaellopez.circularprogressbar.CircularProgressBar
+            android:id="@+id/circularProgressBar"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:cpb_background_progressbar_color="@android:color/holo_blue_light"
+            app:cpb_background_progressbar_width="5dp"
+            app:cpb_progress_direction="to_right"
+            app:cpb_progressbar_color="@android:color/holo_blue_light"
+            app:cpb_progressbar_width="10dp"
+            app:cpb_round_border="false"/>
+
+        <TextView
+            android:id="@+id/txtHeartRate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@android:color/holo_blue_light"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
 </layout>

@@ -1,0 +1,42 @@
+{
+  "stringTable": {
+    "0": "/Users/harshvardhan/Documents/ASU IT/Fall 21/CSE 535 Mobile Computing/CovidWarrior/sdk/.cxx/cmake/debug/armeabi-v7a",
+    "1": "--target=armv7-none-linux-androideabi23 --gcc-toolchain=/Users/harshvardhan/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/harshvardhan/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security -O0 -fno-limit-debug-info -fPIC"
+  },
+  "buildFiles": [
+    "/Users/harshvardhan/Documents/ASU IT/Fall 21/CSE 535 Mobile Computing/CovidWarrior/sdk/libcxx_helper/CMakeLists.txt",
+    "/Users/harshvardhan/Library/Android/sdk/ndk/21.1.6352462/build/cmake/android.toolchain.cmake",
+    "/Users/harshvardhan/Library/Android/sdk/ndk/21.1.6352462/build/cmake/platforms.cmake"
+  ],
+  "cleanCommands": [
+    "/Users/harshvardhan/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja -C \"/Users/harshvardhan/Documents/ASU IT/Fall 21/CSE 535 Mobile Computing/CovidWarrior/sdk/.cxx/cmake/debug/armeabi-v7a\" clean"
+  ],
+  "buildTargetsCommand": "/Users/harshvardhan/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja  -C \"/Users/harshvardhan/Documents/ASU IT/Fall 21/CSE 535 Mobile Computing/CovidWarrior/sdk/.cxx/cmake/debug/armeabi-v7a\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "opencv_jni_shared-Debug-armeabi-v7a": {
+      "buildCommand": "/Users/harshvardhan/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja -C \"/Users/harshvardhan/Documents/ASU IT/Fall 21/CSE 535 Mobile Computing/CovidWarrior/sdk/.cxx/cmake/debug/armeabi-v7a\" opencv_jni_shared",
+      "buildType": "debug",
+      "toolchain": "188256455",
+      "abi": "armeabi-v7a",
+      "artifactName": "opencv_jni_shared",
+      "files": [
+        {
+          "src": "/Users/harshvardhan/Documents/ASU IT/Fall 21/CSE 535 Mobile Computing/CovidWarrior/sdk/libcxx_helper/dummy.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "headers": [],
+      "output": "/Users/harshvardhan/Documents/ASU IT/Fall 21/CSE 535 Mobile Computing/CovidWarrior/sdk/.cxx/cmake/debug/armeabi-v7a/libopencv_jni_shared.a"
+    }
+  },
+  "toolchains": {
+    "188256455": {
+      "cppCompilerExecutable": "/Users/harshvardhan/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

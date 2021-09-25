@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "f81aac88924497dfbf481465ea711b24",
+    "identityHash": "f5af60362e06a4161683ee954d78312d",
     "entities": [
       {
         "tableName": "user",
@@ -56,7 +56,7 @@
       },
       {
         "tableName": "symptoms",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `userId` INTEGER NOT NULL DEFAULT 0, `creationDate` INTEGER NOT NULL DEFAULT 0, `nausea` REAL NOT NULL DEFAULT 0, `headache` REAL NOT NULL DEFAULT 0, `diarrhea` REAL NOT NULL DEFAULT 0, `soarThroat` REAL NOT NULL DEFAULT 0, `fever` REAL NOT NULL DEFAULT 0, `muscleAche` REAL NOT NULL DEFAULT 0, `smellLoss` REAL NOT NULL DEFAULT 0, `cough` REAL NOT NULL DEFAULT 0, `shortnessBreath` REAL NOT NULL DEFAULT 0, `tiredness` REAL NOT NULL DEFAULT 0)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `userId` INTEGER NOT NULL DEFAULT 0, `creationDate` INTEGER NOT NULL DEFAULT 0, `nausea` REAL NOT NULL DEFAULT 0, `headache` REAL NOT NULL DEFAULT 0, `diarrhea` REAL NOT NULL DEFAULT 0, `soarThroat` REAL NOT NULL DEFAULT 0, `fever` REAL NOT NULL DEFAULT 0, `muscleAche` REAL NOT NULL DEFAULT 0, `smellLoss` REAL NOT NULL DEFAULT 0, `cough` REAL NOT NULL DEFAULT 0, `shortnessBreath` REAL NOT NULL DEFAULT 0, `tiredness` REAL NOT NULL DEFAULT 0, `heartRate` REAL NOT NULL DEFAULT 0, `respiRate` REAL NOT NULL DEFAULT 0)",
         "fields": [
           {
             "fieldPath": "id",
@@ -147,6 +147,20 @@
             "affinity": "REAL",
             "notNull": true,
             "defaultValue": "0"
+          },
+          {
+            "fieldPath": "heartRate",
+            "columnName": "heartRate",
+            "affinity": "REAL",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "respiRate",
+            "columnName": "respiRate",
+            "affinity": "REAL",
+            "notNull": true,
+            "defaultValue": "0"
           }
         ],
         "primaryKey": {
@@ -162,7 +176,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f81aac88924497dfbf481465ea711b24')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f5af60362e06a4161683ee954d78312d')"
     ]
   }
 }

@@ -1,0 +1,7 @@
+Executable : /Users/harshvardhan/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja
+arguments : 
+-C
+/Users/harshvardhan/Documents/ASU IT/Fall 21/CSE 535 Mobile Computing/CovidWarrior/sdk/.cxx/cmake/debug/x86
+opencv_jni_shared
+jvmArgs : 
+

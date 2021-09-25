@@ -1,0 +1,22 @@
+                Executable : /Users/harshvardhan/Library/Android/sdk/cmake/3.10.2.4988404/bin/cmake
+arguments : 
+-H/Users/harshvardhan/Documents/ASU IT/Fall 21/CSE 535 Mobile Computing/CovidWarrior/sdk/libcxx_helper
+-DCMAKE_FIND_ROOT_PATH=/Users/harshvardhan/Documents/ASU IT/Fall 21/CSE 535 Mobile Computing/CovidWarrior/sdk/.cxx/cmake/debug/prefab/armeabi-v7a/prefab
+-DCMAKE_BUILD_TYPE=Debug
+-DCMAKE_TOOLCHAIN_FILE=/Users/harshvardhan/Library/Android/sdk/ndk/21.1.6352462/build/cmake/android.toolchain.cmake
+-DANDROID_ABI=armeabi-v7a
+-DANDROID_NDK=/Users/harshvardhan/Library/Android/sdk/ndk/21.1.6352462
+-DANDROID_PLATFORM=android-23
+-DCMAKE_ANDROID_ARCH_ABI=armeabi-v7a
+-DCMAKE_ANDROID_NDK=/Users/harshvardhan/Library/Android/sdk/ndk/21.1.6352462
+-DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/harshvardhan/Documents/ASU IT/Fall 21/CSE 535 Mobile Computing/CovidWarrior/sdk/build/intermediates/cmake/debug/obj/armeabi-v7a
+-DCMAKE_MAKE_PROGRAM=/Users/harshvardhan/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja
+-DCMAKE_SYSTEM_NAME=Android
+-DCMAKE_SYSTEM_VERSION=23
+-DANDROID_STL=c++_shared
+-B/Users/harshvardhan/Documents/ASU IT/Fall 21/CSE 535 Mobile Computing/CovidWarrior/sdk/.cxx/cmake/debug/armeabi-v7a
+-GNinja
+jvmArgs : 
+
+Build command args:

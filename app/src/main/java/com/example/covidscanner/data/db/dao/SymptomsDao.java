@@ -1,5 +1,6 @@
 package com.example.covidscanner.data.db.dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -29,4 +30,7 @@ public interface SymptomsDao {
 
     @Query("DELETE FROM symptoms WHERE userId = :userId")
     void deleteByUserId(int userId);
+
+    @Query("SELECT * FROM symptoms ORDER BY ID DESC LIMIT 1")
+    LiveData<List<Symptoms>> loadSymptoms();
 }

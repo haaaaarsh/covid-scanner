@@ -1,0 +1,3 @@
+/Users/harshvardhan/Documents/ASU IT/Fall 21/CSE 535 Mobile Computing/Assignment 1/CovidScanner/opencv/.cxx/Debug/5b2z5gq2/arm64-v8a/CMakeFiles/rebuild_cache.dir
+/Users/harshvardhan/Documents/ASU IT/Fall 21/CSE 535 Mobile Computing/Assignment 1/CovidScanner/opencv/.cxx/Debug/5b2z5gq2/arm64-v8a/CMakeFiles/edit_cache.dir
+/Users/harshvardhan/Documents/ASU IT/Fall 21/CSE 535 Mobile Computing/Assignment 1/CovidScanner/opencv/.cxx/Debug/5b2z5gq2/arm64-v8a/CMakeFiles/opencv_jni_shared.dir

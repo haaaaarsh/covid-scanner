@@ -70,7 +70,8 @@
                                 android:layout_gravity="center"
                                 android:gravity="center"
                                 android:text="@string/reports"
-                                android:textSize="14sp" />
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
 
                         </LinearLayout>
 
@@ -111,9 +112,9 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="60dp"
-                                    android:scaleType="centerInside"
                                     android:layout_gravity="center_horizontal"
                                     android:layout_marginBottom="20dp"
+                                    android:scaleType="centerInside"
                                     android:src="@drawable/ic_heart_rate" />
 
                                 <TextView
@@ -122,6 +123,16 @@
                                     android:layout_gravity="center"
                                     android:gravity="center"
                                     android:text="@string/heart_rate"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/txtHeartRate"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:textColor="@android:color/holo_red_light"
                                     android:textSize="14sp" />
 
                             </LinearLayout>
@@ -164,6 +175,16 @@
                                     android:layout_gravity="center"
                                     android:gravity="center"
                                     android:text="@string/respiratory_rate"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/txtRespiRate"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:textColor="@android:color/holo_red_light"
                                     android:textSize="14sp" />
 
                             </LinearLayout>
@@ -209,7 +230,8 @@
                                 android:layout_gravity="center"
                                 android:gravity="center"
                                 android:text="@string/symptoms"
-                                android:textSize="14sp" />
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
 
                         </LinearLayout>
 

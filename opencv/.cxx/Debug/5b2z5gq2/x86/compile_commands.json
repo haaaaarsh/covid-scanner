@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/Users/harshvardhan/Documents/ASU IT/Fall 21/CSE 535 Mobile Computing/Assignment 1/CovidScanner/opencv/.cxx/Debug/5b2z5gq2/x86",
+  "command": "/Users/harshvardhan/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=i686-none-linux-android23 --gcc-toolchain=/Users/harshvardhan/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/harshvardhan/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot    -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/opencv_jni_shared.dir/dummy.cpp.o -c \"/Users/harshvardhan/Documents/ASU IT/Fall 21/CSE 535 Mobile Computing/Assignment 1/CovidScanner/opencv/libcxx_helper/dummy.cpp\"",
+  "file": "/Users/harshvardhan/Documents/ASU IT/Fall 21/CSE 535 Mobile Computing/Assignment 1/CovidScanner/opencv/libcxx_helper/dummy.cpp"
+}
+]

@@ -47,11 +47,17 @@ public class Symptoms {
     @ColumnInfo(defaultValue = "0")
     public float tiredness;
 
+    @ColumnInfo(defaultValue = "0")
+    public float heartRate;
+
+    @ColumnInfo(defaultValue = "0")
+    public float respiRate;
+
     public Symptoms() {
     }
 
     @Ignore
-    public Symptoms(int userId, int creationDate, float nausea, float headache, float diarrhea, float soarThroat, float fever, float muscleAche, float smellLoss, float cough, float shortnessBreath, float tiredness) {
+    public Symptoms(int userId, int creationDate, float nausea, float headache, float diarrhea, float soarThroat, float fever, float muscleAche, float smellLoss, float cough, float shortnessBreath, float tiredness, float heartRate, float respiRate) {
         this.userId = userId;
         this.creationDate = creationDate;
         this.nausea = nausea;
@@ -64,5 +70,7 @@ public class Symptoms {
         this.cough = cough;
         this.shortnessBreath = shortnessBreath;
         this.tiredness = tiredness;
+        this.heartRate = heartRate;
+        this.respiRate = respiRate;
     }
 }

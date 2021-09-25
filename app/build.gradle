@@ -60,10 +60,17 @@ dependencies {
     //Rating bar
     implementation 'me.zhanghai.android.materialratingbar:library:1.4.0'
 
-    //OpenCV
-    implementation project(path: ':openCVLibrary343')
-
+    //Camera
     implementation 'com.github.MasayukiSuda:CameraRecorder-android:v0.1.5'
+
+    //Math util
+    implementation 'org.apache.commons:commons-math3:3.6.1'
+
+    //OpenCV
+    implementation project(path: ':opencv')
+
+    //Circular Loader
+    implementation 'com.mikhaellopez:circularprogressbar:3.1.0'
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

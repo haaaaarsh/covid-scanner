@@ -1,0 +1,2 @@
+ninja: Entering directory `/Users/harshvardhan/Documents/ASU IT/Fall 21/CSE 535 Mobile Computing/Assignment 1/CovidScanner/opencv/.cxx/Debug/5b2z5gq2/arm64-v8a'
+ninja: no work to do.

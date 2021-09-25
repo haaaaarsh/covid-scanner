@@ -1,0 +1,2 @@
+ninja: Entering directory `/Users/harshvardhan/Documents/ASU IT/Fall 21/CSE 535 Mobile Computing/CovidWarrior/sdk/.cxx/cmake/debug/arm64-v8a'
+ninja: no work to do.

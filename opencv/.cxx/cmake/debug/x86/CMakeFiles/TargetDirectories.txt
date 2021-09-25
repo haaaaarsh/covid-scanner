@@ -1,0 +1,3 @@
+/Users/harshvardhan/Documents/ASU IT/Fall 21/CSE 535 Mobile Computing/CovidWarrior/sdk/.cxx/cmake/debug/x86/CMakeFiles/rebuild_cache.dir
+/Users/harshvardhan/Documents/ASU IT/Fall 21/CSE 535 Mobile Computing/CovidWarrior/sdk/.cxx/cmake/debug/x86/CMakeFiles/edit_cache.dir
+/Users/harshvardhan/Documents/ASU IT/Fall 21/CSE 535 Mobile Computing/CovidWarrior/sdk/.cxx/cmake/debug/x86/CMakeFiles/opencv_jni_shared.dir

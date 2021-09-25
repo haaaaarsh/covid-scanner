@@ -1,0 +1,39 @@
+{
+  "stringTable": {},
+  "buildFiles": [
+    "/Users/harshvardhan/Documents/ASU IT/Fall 21/CSE 535 Mobile Computing/Assignment 1/CovidScanner/opencv/libcxx_helper/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/harshvardhan/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja",
+      "-C",
+      "/Users/harshvardhan/Documents/ASU IT/Fall 21/CSE 535 Mobile Computing/Assignment 1/CovidScanner/opencv/.cxx/Debug/5b2z5gq2/x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/harshvardhan/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja",
+    "-C",
+    "/Users/harshvardhan/Documents/ASU IT/Fall 21/CSE 535 Mobile Computing/Assignment 1/CovidScanner/opencv/.cxx/Debug/5b2z5gq2/x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "opencv_jni_shared-Debug-x86": {
+      "buildCommandComponents": [
+        "/Users/harshvardhan/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja",
+        "-C",
+        "/Users/harshvardhan/Documents/ASU IT/Fall 21/CSE 535 Mobile Computing/Assignment 1/CovidScanner/opencv/.cxx/Debug/5b2z5gq2/x86",
+        "opencv_jni_shared"
+      ],
+      "buildType": "debug",
+      "abi": "x86",
+      "artifactName": "opencv_jni_shared",
+      "output": "/Users/harshvardhan/Documents/ASU IT/Fall 21/CSE 535 Mobile Computing/Assignment 1/CovidScanner/opencv/.cxx/Debug/5b2z5gq2/x86/libopencv_jni_shared.a"
+    }
+  },
+  "toolchains": {},
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}
