@@ -7,4 +7,6 @@ public interface HeartRateNavigator {
     Context getActivityContext();
 
     void onError(String message);
+
+    void recordClick();
 }

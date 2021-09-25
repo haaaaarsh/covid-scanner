@@ -1,8 +1,11 @@
 package com.example.covidscanner.ui.dashboard;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -27,6 +30,7 @@ import com.example.covidscanner.ui.symptom.SymptomActivity;
 public class DashboardActivity extends BaseActivity<DashboardViewModel> implements DashboardNavigator {
 
     ActivityDashboardBinding binding;
+    private final int CAMERA_PERMISSION_REQUEST_CODE = 0x01;
 
     @NonNull
     @Override
@@ -101,7 +105,8 @@ public class DashboardActivity extends BaseActivity<DashboardViewModel> implemen
     public void openNextScreen(int screenNum) {
         switch (screenNum) {
             case 1:
-                openActivity(HeartRateActivity.class);
+                if (checkPermission())
+                    openActivity(HeartRateActivity.class);
                 break;
             case 2:
                 openActivity(RespiratoryRateActivity.class);
@@ -111,6 +116,34 @@ public class DashboardActivity extends BaseActivity<DashboardViewModel> implemen
                 break;
             case 4:
                 openActivity(ReportsActivity.class);
+                break;
+        }
+    }
+
+    private boolean checkPermission() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            return true;
+        }
+
+        if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED ||
+                checkSelfPermission(Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED ||
+                checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+        ) {
+
+            requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO, Manifest.permission.WRITE_EXTERNAL_STORAGE}, CAMERA_PERMISSION_REQUEST_CODE);
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case CAMERA_PERMISSION_REQUEST_CODE:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+                    openActivity(HeartRateActivity.class);
                 break;
         }
     }

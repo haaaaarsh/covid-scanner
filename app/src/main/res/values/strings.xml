@@ -39,4 +39,7 @@
     <string name="reports">Reports</string>
     <string name="btn_report">Create Report</string>
 
+    <!--    Heart Rate-->
+    <string name="btn_record">Start Recording</string>
+
 </resources>

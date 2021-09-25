@@ -11,4 +11,8 @@ public class HeartRateViewModel extends BaseViewModel<HeartRateNavigator> {
         db = AppDatabase.getInstance();
     }
 
+    public void record() {
+        getNavigator().recordClick();
+    }
+
 }
