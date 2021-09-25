@@ -2,6 +2,7 @@ package com.example.covidscanner.data.model;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "symptoms")
@@ -49,6 +50,7 @@ public class Symptoms {
     public Symptoms() {
     }
 
+    @Ignore
     public Symptoms(int userId, int creationDate, float nausea, float headache, float diarrhea, float soarThroat, float fever, float muscleAche, float smellLoss, float cough, float shortnessBreath, float tiredness) {
         this.userId = userId;
         this.creationDate = creationDate;

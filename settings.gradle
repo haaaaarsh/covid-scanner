@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Covid Scanner"
 include ':app'
+include ':openCVLibrary343'
