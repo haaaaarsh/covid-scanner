@@ -6,7 +6,7 @@
     <string name="title_respi_rate">Respiratory Rate</string>
     <string name="title_symps">Symptoms</string>
     <string name="title_reports">Reports</string>
-
+    <string name="title_calculate_rate">Calculate Heart Rate</string>
 
     <!--    Validations-->
     <string name="validate_first_name">First Name should be at least 3 characters long</string>

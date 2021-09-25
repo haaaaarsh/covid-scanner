@@ -1,6 +1,7 @@
 package com.example.covidscanner.ui.heartrate;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -9,7 +10,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
@@ -22,10 +22,10 @@ import com.daasuu.camerarecorder.LensFacing;
 import com.example.covidscanner.R;
 import com.example.covidscanner.databinding.ActivityHeartRateBinding;
 import com.example.covidscanner.ui.base.BaseActivity;
+import com.example.covidscanner.ui.calculateheart.CalculateHeartActivity;
 import com.example.covidscanner.utils.SampleGLView;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class HeartRateActivity extends BaseActivity<HeartRateViewModel> implements HeartRateNavigator {
@@ -84,7 +84,7 @@ public class HeartRateActivity extends BaseActivity<HeartRateViewModel> implemen
     @Override
     public void recordClick() {
         File file;
-        String filename = "heart_rate/mp4";
+        String filename = "heart_rate.mp4";
         file = new File(this.getCacheDir(), filename);
         filepath = file.getAbsolutePath();
         cameraRecorder.start(filepath);
@@ -186,14 +186,16 @@ public class HeartRateActivity extends BaseActivity<HeartRateViewModel> implemen
         binding.timer.setVisibility(View.VISIBLE);
         cTimer = new CountDownTimer(TimeUnit.SECONDS.toMillis(45), TimeUnit.SECONDS.toMillis(1)) {
             public void onTick(long millisUntilFinished) {
-                long minutes = TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished);
-                long seconds = TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished);
-                binding.timer.setText("00:" + seconds);
+                String seconds = String.valueOf(TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished));
+                binding.timer.setText(seconds.length() > 1 ? "00:" + seconds : "00:" + "0" + seconds);
             }
 
             public void onFinish() {
-                binding.timer.setText("00:00");
                 cameraRecorder.stop();
+                Intent intent = new Intent(HeartRateActivity.this, CalculateHeartActivity.class);
+                intent.putExtra("filepath", filepath);
+                startActivity(intent);
+                finish();
             }
         };
         cTimer.start();
