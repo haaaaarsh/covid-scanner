@@ -75,6 +75,10 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
 
+        <service
+            android:name=".utils.services.MeasureRespirationService"
+            android:enabled="true"
+            android:exported="true"/>
     </application>
 
 </manifest>
