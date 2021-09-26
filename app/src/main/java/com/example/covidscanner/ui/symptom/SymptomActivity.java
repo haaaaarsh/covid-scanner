@@ -72,9 +72,9 @@ public class SymptomActivity extends BaseActivity<SymptomViewModel> implements S
         });
     }
 
-    public void updateList(List<SymptomsModel> notificationList) {
+    public void updateList(List<SymptomsModel> symptomList) {
         adapter.clearAll();
-        adapter.addAll(notificationList);
+        adapter.addAll(symptomList);
     }
 
     @Override

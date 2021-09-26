@@ -25,8 +25,8 @@ public interface SymptomsDao {
     @Update
     void updateSymptom(Symptoms symptoms);
 
-    @Query("SELECT * FROM symptoms WHERE userId LIKE :userId")
-    List<Symptoms> findByUserId(String userId);
+    @Query("SELECT * FROM symptoms WHERE userId LIKE :userId ORDER BY ID DESC")
+    LiveData<List<Symptoms>> findByUserId(int userId);
 
     @Query("DELETE FROM symptoms WHERE userId = :userId")
     void deleteByUserId(int userId);

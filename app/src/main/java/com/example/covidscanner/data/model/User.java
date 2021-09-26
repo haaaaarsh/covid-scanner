@@ -34,4 +34,8 @@ public class User implements Serializable {
         this.lastName = lastName;
         this.isLoggedIn = false;
     }
+
+    public int getId() {
+        return id;
+    }
 }

@@ -1,10 +1,8 @@
 package com.example.covidscanner.ui.dashboard;
 
 import android.Manifest;
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -18,7 +16,6 @@ import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.example.covidscanner.R;
 import com.example.covidscanner.data.db.AppDatabase;
@@ -33,6 +30,7 @@ import com.example.covidscanner.ui.login.LoginActivity;
 import com.example.covidscanner.ui.reports.ReportsActivity;
 import com.example.covidscanner.ui.respiratory.RespiratoryRateActivity;
 import com.example.covidscanner.ui.symptom.SymptomActivity;
+import com.example.covidscanner.utils.AlertUtil;
 
 import java.util.List;
 
@@ -53,7 +51,7 @@ public class DashboardActivity extends BaseActivity<DashboardViewModel> implemen
         super.onCreate(savedInstanceState);
         setDataBindings();
         viewModel.setNavigator(this);
-        viewModel.initSymptomData();
+        viewModel.initSymptomData(false);
         setData();
     }
 
@@ -122,6 +120,34 @@ public class DashboardActivity extends BaseActivity<DashboardViewModel> implemen
                 openActivity(ReportsActivity.class);
                 break;
         }
+    }
+
+    @Override
+    public void createReport() {
+        AlertUtil.showAlertDialog(this, getString(R.string.create_report),
+                getString(R.string.confirm_create_report), getString(R.string.btn_ok),
+                getString(R.string.btn_cancel), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        viewModel.addReportToDb();
+                    }
+                },
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+    }
+
+    @Override
+    public User getUser() {
+        return getCurrentUser();
+    }
+
+    @Override
+    public void onReportCreateSuccess() {
+        showSnackbar(getString(R.string.report_created), Color.GREEN, Color.WHITE);
     }
 
     private void setDataBindings() {

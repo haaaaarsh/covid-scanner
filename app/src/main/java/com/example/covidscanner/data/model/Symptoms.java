@@ -15,7 +15,7 @@ public class Symptoms {
     public int userId;
 
     @ColumnInfo(defaultValue = "0")
-    public int creationDate;
+    public String creationDate;
 
     @ColumnInfo(defaultValue = "0")
     public float nausea;
@@ -57,7 +57,7 @@ public class Symptoms {
     }
 
     @Ignore
-    public Symptoms(int userId, int creationDate, float nausea, float headache, float diarrhea, float soarThroat, float fever, float muscleAche, float smellLoss, float cough, float shortnessBreath, float tiredness, float heartRate, float respiRate) {
+    public Symptoms(int userId, String creationDate, float nausea, float headache, float diarrhea, float soarThroat, float fever, float muscleAche, float smellLoss, float cough, float shortnessBreath, float tiredness, float heartRate, float respiRate) {
         this.userId = userId;
         this.creationDate = creationDate;
         this.nausea = nausea;

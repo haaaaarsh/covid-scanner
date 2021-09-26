@@ -67,6 +67,17 @@ public class AlertUtil {
         builder.show();
     }
 
+    public static void showCustomAlertDialogWithListener(Context context, String msg, DialogInterface.OnClickListener okListener) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle(null);
+        builder.setMessage(msg);
+        builder.setPositiveButton("Got it!", okListener);
+        builder.setCancelable(true);
+        builder.setCancelable(false);
+        builder.show();
+        AlertDialog dialog = builder.create();
+    }
+
     public static void showAlertDialogDismissableWithTitle(Context context, String title, String msg) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(title);

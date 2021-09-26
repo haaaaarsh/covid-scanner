@@ -38,6 +38,11 @@
     <string name="symptoms">Symptoms</string>
     <string name="reports">Reports</string>
     <string name="btn_report">Create Report</string>
+    <string name="create_report">Create Report</string>
+    <string name="confirm_create_report">Do you want to create a report with the current data?</string>
+    <string name="btn_ok">Yes</string>
+    <string name="btn_cancel">No</string>
+    <string name="report_created">Report created! Please open Reports to view all your reports.</string>
 
     <!--    Heart Rate-->
     <string name="btn_record">Start Recording</string>
