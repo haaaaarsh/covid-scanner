@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.covidscanner.R;
 import com.example.covidscanner.data.model.Symptoms;
+import com.example.covidscanner.data.model.User;
 import com.example.covidscanner.ui.symptom.SymptomsModel;
 
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ public class ReportDialog extends Dialog implements View.OnClickListener, Sympto
     public Activity c;
     public Dialog d;
     public Button btnDone;
-    TextView heartTxt, respiTxt;
+    TextView titleTxt, heartTxt, respiTxt;
     SymptomReportAdapter adapter;
     RecyclerView rvSymptoms;
 
@@ -40,6 +41,7 @@ public class ReportDialog extends Dialog implements View.OnClickListener, Sympto
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.report_dialog);
         btnDone = (Button) findViewById(R.id.btnDone);
+        titleTxt = (TextView) findViewById(R.id.titleTxt);
         heartTxt = (TextView) findViewById(R.id.heartTxt);
         respiTxt = (TextView) findViewById(R.id.respiTxt);
         rvSymptoms = (RecyclerView) findViewById(R.id.rvSymptoms);
@@ -58,7 +60,9 @@ public class ReportDialog extends Dialog implements View.OnClickListener, Sympto
         dismiss();
     }
 
-    public void setData(Symptoms symptoms) {
+    public void setData(User user, Symptoms symptoms) {
+        titleTxt.setText(String.format("%s %s's Report on %s", user.firstName, user.lastName, symptoms.creationDate));
+
         heartTxt.setText(String.format("Heart Rate: %.2f", symptoms.heartRate));
         respiTxt.setText(String.format("Respiration Rate: %.2f", symptoms.respiRate));
 

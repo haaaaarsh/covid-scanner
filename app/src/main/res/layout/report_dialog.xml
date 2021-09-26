@@ -22,6 +22,16 @@
         android:paddingBottom="20dp">
 
         <TextView
+            android:id="@+id/titleTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
             android:id="@+id/heartTxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

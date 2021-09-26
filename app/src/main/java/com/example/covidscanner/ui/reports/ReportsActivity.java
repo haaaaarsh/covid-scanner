@@ -98,7 +98,7 @@ public class ReportsActivity extends BaseActivity<ReportsViewModel> implements R
     public void onReportClick(Symptoms symptom) {
         ReportDialog dialog = new ReportDialog(this);
         dialog.show();
-        dialog.setData(symptom);
+        dialog.setData(getCurrentUser(), symptom);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialog.getWindow().getAttributes());
         lp.width = WindowManager.LayoutParams.MATCH_PARENT;

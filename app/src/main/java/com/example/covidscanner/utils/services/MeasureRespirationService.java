@@ -60,7 +60,7 @@ public class MeasureRespirationService extends Service implements SensorEventLis
 //                    Log.e("Resprate<>", String.valueOf(respRate));
                     broadcastRespiRateToActivity(respRate);
                 }
-            }, TimeUnit.SECONDS.toMillis(15));
+            }, TimeUnit.SECONDS.toMillis(45));
         }
     }
 
