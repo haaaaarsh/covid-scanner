@@ -33,4 +33,7 @@ public interface SymptomsDao {
 
     @Query("SELECT * FROM symptoms ORDER BY ID DESC LIMIT 1")
     LiveData<List<Symptoms>> loadSymptoms();
+
+    @Query("SELECT * FROM symptoms WHERE userId = -1 ORDER BY ID DESC LIMIT 1")
+    LiveData<List<Symptoms>> loadTempSymptoms();
 }

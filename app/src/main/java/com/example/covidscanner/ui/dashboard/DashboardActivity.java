@@ -159,7 +159,7 @@ public class DashboardActivity extends BaseActivity<DashboardViewModel> implemen
     private void setData() {
         AppDatabase db = AppDatabase.getInstance();
         SymptomsDao symptomsDao = db.symptomsDao();
-        symptomsDao.loadSymptoms().observe(this, new Observer<List<Symptoms>>() {
+        symptomsDao.loadTempSymptoms().observe(this, new Observer<List<Symptoms>>() {
             @Override
             public void onChanged(List<Symptoms> symptoms) {
                 Symptoms s = symptoms.get(0);
