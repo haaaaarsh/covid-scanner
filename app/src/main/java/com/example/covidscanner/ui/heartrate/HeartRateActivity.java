@@ -1,6 +1,7 @@
 package com.example.covidscanner.ui.heartrate;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -23,7 +24,10 @@ import com.example.covidscanner.R;
 import com.example.covidscanner.databinding.ActivityHeartRateBinding;
 import com.example.covidscanner.ui.base.BaseActivity;
 import com.example.covidscanner.ui.calculateheart.CalculateHeartActivity;
+import com.example.covidscanner.ui.respiratory.RespiratoryRateActivity;
+import com.example.covidscanner.utils.AlertUtil;
 import com.example.covidscanner.utils.SampleGLView;
+import com.example.covidscanner.utils.services.MeasureRespirationService;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -56,6 +60,7 @@ public class HeartRateActivity extends BaseActivity<HeartRateViewModel> implemen
         setToolBar();
         setDataBindings();
         viewModel.setNavigator(this);
+        openDialog();
     }
 
     @Override
@@ -101,6 +106,15 @@ public class HeartRateActivity extends BaseActivity<HeartRateViewModel> implemen
         binding = DataBindingUtil.setContentView(this, R.layout.activity_heart_rate);
         binding.setViewModel(viewModel);
         binding.executePendingBindings();
+    }
+
+    public void openDialog() {
+        AlertUtil.showAlertDialogWithListener(this, getString(R.string.instructions_heart), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
     }
 
     private void releaseCamera() {

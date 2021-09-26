@@ -41,5 +41,10 @@
 
     <!--    Heart Rate-->
     <string name="btn_record">Start Recording</string>
+    <string name="instructions_heart">1. Place your index finger on the camera lens while covering the flash light.
+        \n\n2. Tap the record button.\n\n3. Press the finger on the back camera softly for 45 seconds. \n\n4. Wait for the result to show on the next screen</string>
+
+    <!--    Respirations Rate-->
+    <string name="instructions_breathe">1. Sit straight and still.\n\n2. Hold the phone against your chest for 45 seconds. \n\n3. Wait for the result to show on the screen</string>
 
 </resources>

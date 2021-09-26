@@ -41,6 +41,12 @@ public class MeasureRespirationService extends Service implements SensorEventLis
     }
 
     @Override
+    public void onDestroy() {
+        stopSelf();
+        super.onDestroy();
+    }
+
+    @Override
     public void onSensorChanged(SensorEvent event) {
         Sensor sensor = event.sensor;
         if (sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
@@ -51,10 +57,10 @@ public class MeasureRespirationService extends Service implements SensorEventLis
                     sensorManager.unregisterListener(MeasureRespirationService.this);
                     respRate = respRate(arr);
                     respRate = round(respRate, 2);
-                    Log.e("Resprate<>", String.valueOf(respRate));
-                    sendMessageToActivity(respRate);
+//                    Log.e("Resprate<>", String.valueOf(respRate));
+                    broadcastRespiRateToActivity(respRate);
                 }
-            }, TimeUnit.SECONDS.toMillis(45));
+            }, TimeUnit.SECONDS.toMillis(15));
         }
     }
 
@@ -63,9 +69,9 @@ public class MeasureRespirationService extends Service implements SensorEventLis
 
     }
 
-    private void sendMessageToActivity(double val) {
+    private void broadcastRespiRateToActivity(double respiRate) {
         Intent intent = new Intent("RespiratoryRate");
-        intent.putExtra("value", val);
+        intent.putExtra("respiRate", respiRate);
         LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
     }
 
@@ -87,9 +93,5 @@ public class MeasureRespirationService extends Service implements SensorEventLis
             return false;
         }
         return true;
-    }
-
-    public void onDestroy() {
-        super.onDestroy();
     }
 }

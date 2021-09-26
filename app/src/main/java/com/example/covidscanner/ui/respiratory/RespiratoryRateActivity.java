@@ -2,6 +2,7 @@ package com.example.covidscanner.ui.respiratory;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
@@ -17,9 +18,9 @@ import com.example.covidscanner.R;
 import com.example.covidscanner.data.db.AppDatabase;
 import com.example.covidscanner.data.db.dao.SymptomsDao;
 import com.example.covidscanner.data.model.Symptoms;
-import com.example.covidscanner.databinding.ActivityHeartRateBinding;
 import com.example.covidscanner.databinding.ActivityRespiRateBinding;
 import com.example.covidscanner.ui.base.BaseActivity;
+import com.example.covidscanner.utils.AlertUtil;
 import com.example.covidscanner.utils.services.MeasureRespirationService;
 
 public class RespiratoryRateActivity extends BaseActivity<RespiratoryRateViewModel> implements RespiratoryRateNavigator {
@@ -42,6 +43,7 @@ public class RespiratoryRateActivity extends BaseActivity<RespiratoryRateViewMod
         setDataBindings();
         viewModel.setNavigator(this);
         db = AppDatabase.getInstance();
+        openDialog();
     }
 
 
@@ -50,34 +52,51 @@ public class RespiratoryRateActivity extends BaseActivity<RespiratoryRateViewMod
         super.onResume();
         LocalBroadcastManager.getInstance(this).registerReceiver(
                 mMessageReceiver, new IntentFilter("RespiratoryRate"));
-        service = new Intent(this, MeasureRespirationService.class);
-        startService(service);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        LocalBroadcastManager.getInstance(this).unregisterReceiver(mMessageReceiver);
+    }
+
+    public void openDialog() {
+        AlertUtil.showAlertDialogWithListener(this, getString(R.string.instructions_breathe), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                service = new Intent(RespiratoryRateActivity.this, MeasureRespirationService.class);
+                startService(service);
+                binding.circularProgressBar.setIndeterminateMode(true);
+            }
+        });
     }
 
     private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            double message = intent.getDoubleExtra("value", 0);
+            double respiRate = intent.getDoubleExtra("respiRate", 0);
             class UpdateRespiTask extends AsyncTask<Void, Void, Void> {
                 @Override
                 protected Void doInBackground(Void... voids) {
                     SymptomsDao symptomsDao = db.symptomsDao();
                     Symptoms s = symptomsDao.getSymptoms().get(symptomsDao.getSymptoms().size() - 1);
-                    s.respiRate = (float) message;
+                    s.respiRate = (float) respiRate;
                     symptomsDao.updateSymptom(s);
                     return null;
+                }
+
+                @Override
+                protected void onPostExecute(Void unused) {
+                    super.onPostExecute(unused);
+                    this.cancel(true);
                 }
             }
             UpdateRespiTask updateRespiTask = new UpdateRespiTask();
             updateRespiTask.execute();
-            stopService(service);
-            binding.btnReport.setText(String.format("Complete: %.2f", message));
+            if (service != null)
+                stopService(service);
+            binding.circularProgressBar.setIndeterminateMode(false);
+            viewModel.setRespirRate(String.format("%.2f", respiRate));
+//            LocalBroadcastManager.getInstance(RespiratoryRateActivity.this).unregisterReceiver(mMessageReceiver);
         }
     };
 
@@ -90,6 +109,7 @@ public class RespiratoryRateActivity extends BaseActivity<RespiratoryRateViewMod
         binding = DataBindingUtil.setContentView(this, R.layout.activity_respi_rate);
         binding.setViewModel(viewModel);
         binding.executePendingBindings();
+        binding.txtRespiRate.setText("Breathe");
     }
 
     @Override
