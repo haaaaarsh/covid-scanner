@@ -44,6 +44,9 @@ public class RespiratoryRateActivity extends BaseActivity<RespiratoryRateViewMod
         viewModel.setNavigator(this);
         db = AppDatabase.getInstance();
         openDialog();
+        LocalBroadcastManager.getInstance(RespiratoryRateActivity.this).unregisterReceiver(mMessageReceiver);
+        if (service != null)
+            stopService(service);
     }
 
 
@@ -57,6 +60,14 @@ public class RespiratoryRateActivity extends BaseActivity<RespiratoryRateViewMod
     @Override
     protected void onStop() {
         super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        LocalBroadcastManager.getInstance(RespiratoryRateActivity.this).unregisterReceiver(mMessageReceiver);
+        if (service != null)
+            stopService(service);
     }
 
     public void openDialog() {
@@ -96,7 +107,7 @@ public class RespiratoryRateActivity extends BaseActivity<RespiratoryRateViewMod
                 stopService(service);
             binding.circularProgressBar.setIndeterminateMode(false);
             viewModel.setRespirRate(String.format("%.2f", respiRate));
-//            LocalBroadcastManager.getInstance(RespiratoryRateActivity.this).unregisterReceiver(mMessageReceiver);
+            LocalBroadcastManager.getInstance(RespiratoryRateActivity.this).unregisterReceiver(mMessageReceiver);
         }
     };
 

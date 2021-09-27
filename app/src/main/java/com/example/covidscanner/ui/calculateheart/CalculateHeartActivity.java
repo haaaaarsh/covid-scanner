@@ -117,14 +117,12 @@ public class CalculateHeartActivity extends BaseActivity<CalculateHeartViewModel
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        // Run in background.
                         System.out.println(Calendar.getInstance().getTime().toString());
                         getVideoFrames(filepath, frameRate * 45);
                         if (intensityAvg.size() == (frameRate * 45)) {
                             createDiffArray(intensityAvg, windowSize);
                             valueDef = heartRate(diffWindow);
                             try {
-//                                peakDetect(intensityAvg,duration,7.2);
                                 Handler mainhandler1 = new Handler(Looper.getMainLooper());
                                 Runnable myrunnable1 = new Runnable() {
                                     @Override
@@ -143,7 +141,6 @@ public class CalculateHeartActivity extends BaseActivity<CalculateHeartViewModel
                             }
                         }
 
-                        System.out.println("-------------------------------------------");
                     }
 
                 }).start();
@@ -152,13 +149,13 @@ public class CalculateHeartActivity extends BaseActivity<CalculateHeartViewModel
 
     }
 
-    private void updateDb(float heart_resD) {
+    private void updateDb(float hr) {
         class UpdateDbTask extends AsyncTask<Void, Void, Void> {
             @Override
             protected Void doInBackground(Void... voids) {
                 SymptomsDao symptomsDao = db.symptomsDao();
                 Symptoms s = symptomsDao.getSymptoms().get(symptomsDao.getSymptoms().size() - 1);
-                s.heartRate = heart_resD;
+                s.heartRate = hr;
                 symptomsDao.updateSymptom(s);
                 return null;
             }
@@ -249,7 +246,7 @@ public class CalculateHeartActivity extends BaseActivity<CalculateHeartViewModel
         binding.circularProgressBar.setProgress(prog);
     }
 
-    private Boolean isaPeak(ArrayList<Double> arr, int n, Double no, int i, int j) {
+    private Boolean isaPeak(ArrayList<Double> arr, Double no, int i) {
         if (Math.abs(no - arr.get(i)) < finalAvg * threshold) {
             return false;
         }
@@ -259,7 +256,7 @@ public class CalculateHeartActivity extends BaseActivity<CalculateHeartViewModel
     public Double heartRate(ArrayList<Double> arr) {
         Double hCount = 0.0;
         for (int i = 1; i < arr.size(); i++) {
-            if (isaPeak(arr, arr.size(), arr.get(i), i - 1, i + 1)) {
+            if (isaPeak(arr, arr.get(i), i - 1)) {
                 hCount++;
             }
         }
